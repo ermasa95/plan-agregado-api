@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from modelo_plan_agregado import plan_agregado
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="API Planificación Agregada",
@@ -8,6 +9,13 @@ app = FastAPI(
     version="1.0"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # luego puedes restringirlo
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 class PlanInput(BaseModel):
     periodo: list
     W0: int
