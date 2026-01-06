@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(
     title="API Planificación Agregada",
     description="Modelo de planeación agregada basado en Chopra",
-    version="1.0"
+    version="2.0"
 )
 
 app.add_middleware(
